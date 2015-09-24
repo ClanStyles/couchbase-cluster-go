@@ -70,8 +70,8 @@ func (c *CouchbaseFleet) LaunchCouchbaseServer() error {
 
 	if err := c.VerifyFleetAPIAvailable(); err != nil {
 		msg := "Unable to connect to Fleet API, see http://bit.ly/1AC1iRX " +
-			"for instructions on how to fix this"
-		return fmt.Errorf(msg)
+			"for instructions on how to fix this - %s"
+		return fmt.Errorf(msg, err)
 	}
 
 	if err := c.verifyEnoughMachinesAvailable(); err != nil {
